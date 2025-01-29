@@ -8,7 +8,7 @@ body {
 }
 
 #game-arena {
-    width: 450px;
+    width: 600px;
     height: 450px;
     background-color: rgb(20, 100, 100);
     border: 5px solid rgb(25, 25, 128);
@@ -44,4 +44,12 @@ body {
     50% {
         opacity: 0.5;
     }
+}
+
+.snake {
+    background-color: rgb(26, 170, 53);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border-radius: 5px;
 }
