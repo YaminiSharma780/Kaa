@@ -24,6 +24,41 @@ document.addEventListener("DOMContentLoaded", () => {
     startButton.textContent = "Start";
     startButton.classList.add("start-button");
     document.body.appendChild(startButton);
+    startButton.addEventListener("click", () => {
+      startButton.style.display = "none";
+
+      runGame();
+    });
   }
   startGame();
+  function runGame() {
+    gameStarted = true;
+    gameLoop();
+  }
+  function gameLoop() {
+    setInterval(() => {
+      drawScoreBoard();
+      drawFoodAndSnake();
+    }, 1000);
+  }
+  function drawScoreBoard() {
+    const scoreBoard = document.getElementById("score-board");
+    scoreBoard.textContent = `Score : ${score}`;
+  }
+  function drawFoodAndSnake(){
+    gameArena.innerHTML = '';
+
+    const foodElement = drawDiv(food.x, food.y, 'food');
+    gameArena.appendChild(foodElement);
+
+    const snakeElement = drawDiv(snake.x, snake.y, 'snake');
+    gameArena.appendChild(snakeElement);
+  }
+  function drawDiv(x, y, className){
+    const div = document.createElement('div');
+    div.classList.add(className);
+    div.style.top = `${y}px`
+    div.style.left = `${x}px`
+    return div;
+  }
 });
